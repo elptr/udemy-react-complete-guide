@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import classes from './App.css';
 
 import Person from './Person/Person';
 import ValidationComponent from './ValidationComponent/ValidationComponent'
@@ -123,7 +123,7 @@ class App extends Component {
         );
 
         return (
-            <div className="App">
+            <div className={classes.App}>
 
                 {/*<Input*/}
                     {/*changed={this.changeNameHandler.bind(this)}*/}
