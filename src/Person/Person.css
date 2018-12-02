@@ -4,3 +4,9 @@
     padding:30px;
     border:1px solid black;
 }
+
+
+.fontBlack{
+    color:blue !important;
+    text-decoration: underline;
+}

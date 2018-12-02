@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import classes from './App.css';
+
+
 
 import Person from './Person/Person';
-import ValidationComponent from './ValidationComponent/ValidationComponent'
+import ValidationComponent from './ValidationComponent/ValidationComponent';
 
-import CharComponent from './CharComponent/CharComponent'
+import CharComponent from './CharComponent/CharComponent';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 
+import classes from './App.css';
 import Input from "./Input/Input";
 
 
@@ -95,20 +98,21 @@ class App extends Component {
             persons = (
                 <div>
                     {this.state.persons.map( (prsn, index) => {
-                            return <Person
-                                key={prsn.id}
+                            return <ErrorBoundary key={prsn.id}>
+
+                            <Person
+
                                 name={prsn.name}
                                 age={prsn.age}
                                 click = {() => this.deletePersonHandler(index)}
                                 changed = {(event) => this.changeNameHandler(event, prsn.id)}
                             />
+                            </ErrorBoundary>
                         }
                     )}
                 </div>
             )
         }
-
-
 
 
         let characters = (
@@ -121,6 +125,13 @@ class App extends Component {
                 />
             }) : null
         );
+
+        let btn = classes.btnGreen;
+        if(this.state.persons.length <= 1) btn = classes.btnRed;
+        console.log(this.state.persons.length);
+
+
+
 
         return (
             <div className={classes.App}>
@@ -143,6 +154,7 @@ class App extends Component {
                 {persons}
 
                 <button
+                    className={btn}
                     onClick={() => this.togglePersonsHandler()}>
                     Toggle Names
                 </button>
