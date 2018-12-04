@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 
+import Persons from '../components/persons/Persons';
+import ValidationComponent from '../components/ValidationComponent/ValidationComponent';
 
-
-import Person from './Person/Person';
-import ValidationComponent from './ValidationComponent/ValidationComponent';
-
-import CharComponent from './CharComponent/CharComponent';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
-
+import CharComponent from '../components/CharComponent/CharComponent';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 import classes from './App.css';
-import Input from "./Input/Input";
+import Input from "../components/Input/Input";
 
 
 class App extends Component {
@@ -48,7 +44,7 @@ class App extends Component {
 
 
 
-    togglePersonsHandler(){
+    togglePersonsHandler = () => {
         this.setState({showPersons: !this.state.showPersons})
     }
 
@@ -96,21 +92,11 @@ class App extends Component {
 
         if(this.state.showPersons){
             persons = (
-                <div>
-                    {this.state.persons.map( (prsn, index) => {
-                            return <ErrorBoundary key={prsn.id}>
-
-                            <Person
-
-                                name={prsn.name}
-                                age={prsn.age}
-                                click = {() => this.deletePersonHandler(index)}
-                                changed = {(event) => this.changeNameHandler(event, prsn.id)}
-                            />
-                            </ErrorBoundary>
-                        }
-                    )}
-                </div>
+                <Persons
+                    persons = {this.state.persons}
+                    clicked = {this.deletePersonHandler}
+                    changed = {this.changeNameHandler}
+                />
             )
         }
 
@@ -126,15 +112,19 @@ class App extends Component {
             }) : null
         );
 
-        let btn = classes.btnGreen;
-        if(this.state.persons.length <= 1) btn = classes.btnRed;
-        console.log(this.state.persons.length);
 
 
 
 
         return (
             <div className={classes.App}>
+
+                <Cockpit
+                    clicked = {this.togglePersonsHandler}
+                    showPersons={this.state.showPersons}
+                    persons = {this.state.persons}
+                    buttonValue = "Toggle Names"
+                />
 
                 {/*<Input*/}
                     {/*changed={this.changeNameHandler.bind(this)}*/}
@@ -153,11 +143,8 @@ class App extends Component {
 
                 {persons}
 
-                <button
-                    className={btn}
-                    onClick={() => this.togglePersonsHandler()}>
-                    Toggle Names
-                </button>
+
+
             </div>
         )
     }

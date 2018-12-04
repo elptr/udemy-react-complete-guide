@@ -1,7 +1,7 @@
 
 import React from 'react';
 import input from "../Input/Input";
-import classes from '../App.css';
+import classes from '../../containers/App.css';
 
 
 const validationComponent = (props) => {
