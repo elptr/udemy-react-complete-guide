@@ -12,7 +12,7 @@ const Cockpit = (props) =>{
 
     return (
         <div className={classes.Cockpit}>
-            <h1>React App</h1>
+            <h1>{props.title}</h1>
             <button
                 className={btn}
                 onClick={props.clicked}

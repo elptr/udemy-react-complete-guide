@@ -124,6 +124,7 @@ class App extends Component {
                     showPersons={this.state.showPersons}
                     persons = {this.state.persons}
                     buttonValue = "Toggle Names"
+                    title={this.props.title}
                 />
 
                 {/*<Input*/}
