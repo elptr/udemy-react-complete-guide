@@ -27,43 +27,43 @@ class App extends Component {
         }
 
 
-        console.log("App.js MOUNTING CONSTRUCTOR");
+        // console.log("App.js MOUNTING CONSTRUCTOR");
     }
 
-    static getDerivedStateFromProps(){
-        console.log("App.js MOUNTING/UPDATE GET-DERIVED-STATE-FROM-PROPS");
-        return null;
-    }
+    // static getDerivedStateFromProps(){
+    //     console.log("App.js MOUNTING/UPDATE GET-DERIVED-STATE-FROM-PROPS");
+    //     return null;
+    // }
+    //
+    // componentDidMount(){
+    //     console.log("App.js MOUNTING COMPONENT-DID-MOUNT");
+    // }
 
-    componentDidMount(){
-        console.log("App.js MOUNTING COMPONENT-DID-MOUNT");
-    }
 
+    // shouldComponentUpdate(nextProps, nextState){
+    //     console.log("App.js UPDATE SHOULD-COMPONENT-UPDATE",
+    //         "nextProps => ", nextProps,
+    //         "nextState => ", nextState
+    //     );
+    //     return true;
+    // }
+    // getSnapshotBeforeUpdate(prevProps, prevState) {
+    //     console.log("App.js UPDATE GET-SNAPSHOP-BEFORE-UPDATE",
+    //         "prevProps => ", prevProps,
+    //         "prevState => ", prevState
+    //     );
+    //     return null;
+    // }
 
-    shouldComponentUpdate(nextProps, nextState){
-        console.log("App.js UPDATE SHOULD-COMPONENT-UPDATE",
-            "nextProps => ", nextProps,
-            "nextState => ", nextState
-        );
-        return true;
-    }
-    getSnapshotBeforeUpdate(prevProps, prevState) {
-        console.log("App.js UPDATE GET-SNAPSHOP-BEFORE-UPDATE",
-            "prevProps => ", prevProps,
-            "prevState => ", prevState
-        );
-        return null;
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot){
-
-            console.log("App.js UPDATE COMPONENT-DID-UPDATE",
-                "snapshot => ", snapshot,
-                "prevProps => ", prevProps,
-                "prevState => ", prevState
-            );
-
-    }
+    // componentDidUpdate(prevProps, prevState, snapshot){
+    //
+    //         console.log("App.js UPDATE COMPONENT-DID-UPDATE",
+    //             "snapshot => ", snapshot,
+    //             "prevProps => ", prevProps,
+    //             "prevState => ", prevState
+    //         );
+    //
+    // }
 
     clickSwitchNameHandler(newName){
         this.setState({
@@ -116,28 +116,18 @@ class App extends Component {
         // const modifiedCharString = charStringPart1 + charStringPart2;
         // this.setState({characterString:modifiedCharString});
 
-
-
         const text = this.state.characterString.split('');
         text.splice(index,1);
         const updatedText = text.join('');
         this.setState({characterString:updatedText});
-
-
-
-
     }
 
 
 
 
 
-
-
-
-
     render(){
-        console.log("App.js MOUNTING/UPDATE RENDER");
+        // console.log("App.js MOUNTING/UPDATE RENDER");
 
         let persons = null;
 

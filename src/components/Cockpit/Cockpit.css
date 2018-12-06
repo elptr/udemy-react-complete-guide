@@ -1,6 +1,7 @@
-.Cockpit button{
+.btn{
+    display:block;
     color:white;
-    margin:10px 0;
+    margin:10px auto;
     padding:20px;
     font-weight:normal;
     border-radius: 3px;
