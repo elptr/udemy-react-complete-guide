@@ -93,7 +93,9 @@ class App extends Component {
 
 
     togglePersonsHandler = () => {
-        this.setState({showPersons: !this.state.showPersons})
+        this.setState( (prevState, props) => {
+            return {showPersons: !this.state.showPersons}
+        });
     }
 
     deletePersonHandler = (personIndex) => {
