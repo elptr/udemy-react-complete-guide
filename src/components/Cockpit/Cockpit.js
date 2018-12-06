@@ -1,5 +1,5 @@
 import React from 'react';
-import Aux from "../../hoc/Aux";
+// import Aux from "../../hoc/Aux";
 import classes from './Cockpit.css';
 
 const Cockpit = (props) =>{
@@ -11,7 +11,7 @@ const Cockpit = (props) =>{
 
 
     return (
-        <Aux>
+        <>
             <h1>{props.title}</h1>
             <button
                 className={btn}
@@ -19,7 +19,7 @@ const Cockpit = (props) =>{
             >
                 {props.buttonValue}
             </button>
-        </Aux>
+        </>
 
     )
 }
