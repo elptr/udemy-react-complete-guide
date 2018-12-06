@@ -11,15 +11,60 @@ import Input from "../components/Input/Input";
 
 
 class App extends Component {
-    state = {
-        persons:[
-            {id:1, name: 'Mika', age:20},
-            {id:2, name: 'Chera', age:21}
-        ],
-        showPersons: true,
-        characterString:'',
-        characterArr:[]
+
+
+    constructor (props){
+        super(props);
+
+        this.state = {
+            persons:[
+                {id:1, name: 'Mika', age:20},
+                {id:2, name: 'Chera', age:21}
+            ],
+            showPersons: true,
+            characterString:'',
+            characterArr:[]
+        }
+
+
+        console.log("App.js MOUNTING CONSTRUCTOR");
     }
+
+    static getDerivedStateFromProps(){
+        console.log("App.js MOUNTING/UPDATE GET-DERIVED-STATE-FROM-PROPS");
+        return null;
+    }
+
+    componentDidMount(){
+        console.log("App.js MOUNTING COMPONENT-DID-MOUNT");
+    }
+
+
+    shouldComponentUpdate(nextProps, nextState){
+        console.log("App.js UPDATE SHOULD-COMPONENT-UPDATE",
+            "nextProps => ", nextProps,
+            "nextState => ", nextState
+        );
+        return true;
+    }
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        console.log("App.js UPDATE GET-SNAPSHOP-BEFORE-UPDATE",
+            "prevProps => ", prevProps,
+            "prevState => ", prevState
+        );
+        return null;
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot){
+
+            console.log("App.js UPDATE COMPONENT-DID-UPDATE",
+                "snapshot => ", snapshot,
+                "prevProps => ", prevProps,
+                "prevState => ", prevState
+            );
+
+    }
+
     clickSwitchNameHandler(newName){
         this.setState({
             persons: [
@@ -87,7 +132,13 @@ class App extends Component {
 
 
 
+
+
+
+
     render(){
+        console.log("App.js MOUNTING/UPDATE RENDER");
+
         let persons = null;
 
         if(this.state.showPersons){
