@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import Aux from "../hoc/Aux";
+import wrappedWithClass from "../hoc/wrappedWithClass";
+
 import Persons from '../components/persons/Persons';
 import ValidationComponent from '../components/ValidationComponent/ValidationComponent';
 
@@ -158,8 +161,7 @@ class App extends Component {
 
 
         return (
-            <div className={classes.App}>
-
+            <Aux>
                 <Cockpit
                     clicked = {this.togglePersonsHandler}
                     showPersons={this.state.showPersons}
@@ -184,10 +186,7 @@ class App extends Component {
 
 
                 {persons}
-
-
-
-            </div>
+            </Aux>
         )
     }
 
@@ -196,4 +195,4 @@ class App extends Component {
 
     }
 
-export default App;
+export default wrappedWithClass(App, classes.App);
